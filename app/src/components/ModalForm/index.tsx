@@ -1,10 +1,49 @@
 import { Container } from "./styles";
+import Modal from 'react-modal';
+interface modalFormProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
+    linkAPI: string;
+}
 
-export function ModalForm(){
-    return(
+export function ModalForm({ isOpen, onRequestClose,linkAPI }: modalFormProps) {
+
+
+    return (
         <>
             <Container>
-                <form className="container" action="">
+                <Modal
+                    isOpen={isOpen}
+                    onRequestClose={onRequestClose}
+                    contentLabel="Attendance form"
+                >
+                    <form  action={linkAPI}>
+                        <h1>Presença da monitoria</h1>
+                            <div className="inputContainer">
+                                <label>Nome</label>
+                                <input placeholder="Ex: Gabriel Carvalho"></input>
+                            </div>
+                            <div className="inputContainer">
+                                <label>Matricula</label>
+                                <input placeholder="Ex: 20191011120005" type="number"></input>
+                            </div>
+                            <div className="inputContainer">
+                                <label>Turma</label>
+                                <input placeholder="Ex: T02"></input>
+                            </div>
+                            
+                                <button>Enviar</button>
+                            
+                    </form>
+
+                </Modal>
+            </Container>
+        </>
+    )
+}
+
+
+/* <form className="container" action="">
                     <h1>Presença da monitoria</h1>
                     <div className="divContainer">
                     <div className="inputContainer">
@@ -23,8 +62,4 @@ export function ModalForm(){
                         <button>Enviar</button>
                     </div>
                     </div>
-                </form>
-            </Container>
-        </>
-    )
-}
+                </form>*/
