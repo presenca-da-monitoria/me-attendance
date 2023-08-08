@@ -7,8 +7,7 @@ export function Dashboard() {
             <h1>Presença de monitoria</h1>
             <h2>Matemática elementar</h2>
 
-            
-            
+
         </Container>
     )
 }
