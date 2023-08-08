@@ -47,11 +47,12 @@ export const Content = styled.div`
 `
 
 export const Monitorias = styled.div`
-    
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display: flex;
+    justify-content: space-around;
+
+
     div {
-        padding: 1rem 1rem;
+        padding: 1rem 0.5rem;
         border-radius: 0.25rem;
     }
     
