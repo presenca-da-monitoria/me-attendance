@@ -1,23 +1,14 @@
+import { Dashboard } from "./components/Dashboard";
+import { ModalForm } from "./components/ModalForm";
+import { GlobalStyle } from "./styles/global";
 
 
-function App() {
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Dashboard/>
+      <ModalForm/>
+      <GlobalStyle />
+    </>
   );
 }
-
-export default App;
