@@ -1,4 +1,3 @@
-import { link } from "fs";
 import { Container } from "./styles";
 import Modal from 'react-modal';
 import { useState } from "react";
@@ -15,46 +14,47 @@ interface inputData {
     classroom: string
 }
 
-export function ModalForm({ isOpen, onRequestClose,linkAPI }: modalFormProps) {
+export function ModalForm({ isOpen, onRequestClose, linkAPI }: modalFormProps) {
 
     const [name, setName] = useState('');
     const [id, setId] = useState('');
-    const [classroom, setClassroom]  = useState('');
+    const [classroom, setClassroom] = useState('');
 
-    const handleData = async (event: "tipo") => {
+    const handleData = async (event: any) => {
         event.preventDefault()
         console.log('click')
     }
 
     return (
         <>
-            <Container>
-                <Modal
-                    isOpen={isOpen}
-                    onRequestClose={onRequestClose}
-                    contentLabel="Attendance form"
-                >
-                    <form  action={linkAPI}>
-                        <h1>Presença da monitoria</h1>
-                            <div className="inputContainer">
-                                <label>Nome</label>
-                                <input placeholder="Ex: Gabriel Carvalho" onChange={(e) => setName(e.target.value)}></input>
-                            </div>
-                            <div className="inputContainer">
-                                <label>Matricula</label>
-                                <input placeholder="Ex: 20191011120005" onChange={(e) => setId(e.target.value)}></input>
-                            </div>
-                            <div className="inputContainer">
-                                <label>Turma</label>
-                                <input placeholder="Ex: T02" onChange={(e) => setClassroom(e.target.value)}></input>
-                            </div>
-                            
-                                <button onClick={(e) => typeof e}>Enviar</button>
-                            
-                    </form>
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={onRequestClose}
+                contentLabel="Attendance form"
+                overlayClassName='react-modal-overlay'
+                className='react-modal-content'
+            >
+                <Container action={linkAPI}>
+                    <h1>Presença da monitoria</h1>
 
-                </Modal>
-            </Container>
+
+                    <input placeholder="Nome completo" onChange={(e) => setName(e.target.value)}></input>
+
+
+
+                    <input placeholder="Matrícula" type="number"onChange={(e) => setId(e.target.value)}></input>
+
+
+
+                    <input placeholder="Turma" onChange={(e) => setClassroom(e.target.value)}></input>
+
+
+                    <button onClick={(e) => typeof e} type="submit">Enviar</button>
+
+                </Container>
+
+            </Modal>
+
         </>
     )
 }

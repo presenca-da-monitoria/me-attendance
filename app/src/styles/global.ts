@@ -43,6 +43,7 @@ export const GlobalStyle = createGlobalStyle`
 
     h1,h2,h3,h4,h5,h6, strong{
         font-weight: 600;
+        color: #DADFF7;
     }
 
     [disabled] {
@@ -50,42 +51,26 @@ export const GlobalStyle = createGlobalStyle`
         cursor: not-allowed;
     }
       
-    .container{
-        padding: 30px;
-        border-radius: 15px;
-        background: linear-gradient(0deg, var(--greenSite), var(--blueSite));
+    
+    .react-modal-overlay{
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
-      
-      .inputContainer{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin: 20px;
-      }
-      
-      .buttonContainer{
-        text-align: center;
-      }
-      
-      h1{
-        color: white;
-      }
-      
-      input{
-        border: 0px solid;
-        height: 50px;
-        border-radius: 7px;
-        font-size: 20px;
-        padding-left: 10px;
-        margin-top: 5px;
-        color: var(--greySite);
-        text-align: center;
-      }
-      
-      label{
-        font-size: 22px;
-        font-weight: 700;
-        color: white
-      }
-      
+
+    .react-modal-content {
+        width: 100%;
+        max-width: 576px;
+        background: #15717E;
+        padding: 3rem;
+        position:relative;
+        border-radius: 0.25rem;
+    }
 `

@@ -1,24 +1,25 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
 
 `
 
 export const Content = styled.div`
-    border-radius: 1rem;
-    width:800px;
-    height:360px;
-    margin:0 auto;
-    background:#f7f7f7;
-    position:absolute;
-    left:50%;
-    top:50%;
-    margin-left:-400px;
-    margin-top:-180px;
+    width: 100%;
+    max-width: fit-content;
+    height: 100%;
+    max-height: 350px;
+    border-radius: 0.25rem;
     background-color: #15717E;
     padding: 1.5rem 1rem 12rem;
     text-align: center;
-    justify-content: space-between;
 
     button {
         font-size: 1rem;
@@ -38,7 +39,7 @@ export const Content = styled.div`
     }
 
     h1 {
-        margin-bottom: 0.5;
+        margin-bottom: 0.5rem;
     }
     h2 {
         margin-bottom: 4rem;
@@ -50,12 +51,23 @@ export const Monitorias = styled.div`
     display: grid;
     grid-template-columns: repeat(3,1fr);
     div {
-        padding: 1.5rem 2rem;
+        padding: 1rem 1rem;
         border-radius: 0.25rem;
-
-        
-        
     }
     
 
 `
+
+/*width:100%;
+    max-width: 800px;
+    height:100%;
+    max-height: 360px;
+    margin:0 auto;
+    background:#f7f7f7;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-left:-400px;
+    margin-top:-180px;
+
+    */

@@ -15,11 +15,11 @@ export function App() {
   const [linkAPI, setLinkAPI] = useState('')
 
   function handleSetLinkApi(monitor: string) {
-    if (monitor == 'Paz') {
+    if (monitor === 'Paz') {
       setLinkAPI('www.linkdaapi/Paz')
-    } else if (monitor == 'Pedro Maneiro') {
+    } else if (monitor === 'Pedro Maneiro') {
       setLinkAPI('www.linkdaapi/pedro-maneiro')
-    } else if (monitor == 'Raquel') {
+    } else if (monitor === 'Raquel') {
       setLinkAPI('www.linkdaapi/Raquel')
     }
   }
