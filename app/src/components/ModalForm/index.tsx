@@ -1,14 +1,30 @@
 import { link } from "fs";
 import { Container } from "./styles";
 import Modal from 'react-modal';
+import { useState } from "react";
+
 interface modalFormProps {
     isOpen: boolean;
     onRequestClose: () => void;
     linkAPI: string;
 }
 
+interface inputData {
+    name: string,
+    id: string,
+    classroom: string
+}
+
 export function ModalForm({ isOpen, onRequestClose,linkAPI }: modalFormProps) {
 
+    const [name, setName] = useState('');
+    const [id, setId] = useState('');
+    const [classroom, setClassroom]  = useState('');
+
+    const handleData = async (event: "tipo") => {
+        event.preventDefault()
+        console.log('click')
+    }
 
     return (
         <>
@@ -22,18 +38,18 @@ export function ModalForm({ isOpen, onRequestClose,linkAPI }: modalFormProps) {
                         <h1>Presença da monitoria</h1>
                             <div className="inputContainer">
                                 <label>Nome</label>
-                                <input placeholder="Ex: Gabriel Carvalho"></input>
+                                <input placeholder="Ex: Gabriel Carvalho" onChange={(e) => setName(e.target.value)}></input>
                             </div>
                             <div className="inputContainer">
                                 <label>Matricula</label>
-                                <input placeholder="Ex: 20191011120005" type="number"></input>
+                                <input placeholder="Ex: 20191011120005" onChange={(e) => setId(e.target.value)}></input>
                             </div>
                             <div className="inputContainer">
                                 <label>Turma</label>
-                                <input placeholder="Ex: T02"></input>
+                                <input placeholder="Ex: T02" onChange={(e) => setClassroom(e.target.value)}></input>
                             </div>
                             
-                                <button onClick={()=>{alert(linkAPI)}}>Enviar</button>
+                                <button onClick={(e) => typeof e}>Enviar</button>
                             
                     </form>
 
