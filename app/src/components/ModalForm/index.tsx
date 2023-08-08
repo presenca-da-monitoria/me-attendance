@@ -1,3 +1,4 @@
+import { link } from "fs";
 import { Container } from "./styles";
 import Modal from 'react-modal';
 interface modalFormProps {
@@ -32,7 +33,7 @@ export function ModalForm({ isOpen, onRequestClose,linkAPI }: modalFormProps) {
                                 <input placeholder="Ex: T02"></input>
                             </div>
                             
-                                <button>Enviar</button>
+                                <button onClick={()=>{alert(linkAPI)}}>Enviar</button>
                             
                     </form>
 

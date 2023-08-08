@@ -5,10 +5,12 @@ import { Container, Content, Monitorias } from "./styles";
 interface DashboardProps {
     handleOpenModal: () => void;
     monitores: string[];
+    handleSetLinkAPI: (monitor: string) => void;
+
 
 }
 
-export function Dashboard({ handleOpenModal, monitores }: DashboardProps) {
+export function Dashboard({ handleOpenModal, monitores, handleSetLinkAPI }: DashboardProps) {
 
 
     return (
@@ -24,13 +26,12 @@ export function Dashboard({ handleOpenModal, monitores }: DashboardProps) {
                                 <Monitor
                                     handleOpenModal={handleOpenModal}
                                     monitorName={monitor}
+                                    handleSetLinkAPI={handleSetLinkAPI}
                                 />
                             )
                         })}
-
                     </Monitorias>
                 </div>
-
             </Content>
         </Container>
     )
