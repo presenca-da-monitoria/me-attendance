@@ -54,5 +54,57 @@ export const GlobalStyle = createGlobalStyle`
         opacity: 0.6;
         cursor: not-allowed;
     }
-
+    :root{
+        --blueSite: #1e6bb8;
+        --greenSite: #159957;
+        --greySite: #606c71;
+      }
+      
+      .container{
+        padding: 30px;
+        border-radius: 15px;
+        background: linear-gradient(0deg, var(--greenSite), var(--blueSite));
+      }
+      
+      .inputContainer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 20px;
+      }
+      
+      .buttonContainer{
+        text-align: center;
+      }
+      
+      h1{
+        color: white;
+      }
+      
+      input{
+        border: 0px solid;
+        height: 50px;
+        border-radius: 7px;
+        font-size: 20px;
+        padding-left: 10px;
+        margin-top: 5px;
+        color: var(--greySite);
+        text-align: center;
+      }
+      
+      label{
+        font-size: 22px;
+        font-weight: 700;
+        color: white
+      }
+      
+      button{
+        height: 50px;
+        width: 150px;
+        font-size: 24px;
+        font-weight: 900;
+        border-radius: 12px;
+        color: var(--greySite);
+        border: none;
+      }
 `
