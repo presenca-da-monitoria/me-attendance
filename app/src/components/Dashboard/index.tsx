@@ -9,7 +9,8 @@ interface DashboardProps {
     handleSetToggleRenderToSelection: () => void;
     handleSetToggleRenderToForm: () => void;
 
-    monitores: string[];
+    monitoresNomes: string[];
+    monitoresHorarios: string[];
     toggleRender: boolean;
     linkAPI: string;
 
@@ -21,15 +22,16 @@ interface inputData {
     classroom: string
 }
 
-export function Dashboard({ linkAPI, handleSetLinkAPI, monitores, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
+export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitoresNomes, monitoresHorarios, handleSetToggleRenderToSelection, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
 
     var render;
 
     if (toggleRender === true) {
         render = <Monitorias>
-            {monitores.map((monitor) => {
+            {monitoresNomes.map((monitorName, i) => {
                 return (
                     <Monitor
+                        handleOpenModal={handleOpenModal}
                         monitorName={monitor}
                         handleSetLinkAPI={handleSetLinkAPI}
                         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
