@@ -45,7 +45,7 @@ export const Container = styled.form`
 
   button[type="submit"] {
       color: #e7e9ee;
-      width: 100%;
+      width: 40%;
       padding: 0 1.5rem;
       margin-top: 1.5rem;
       height: 4rem;
@@ -53,7 +53,7 @@ export const Container = styled.form`
       border-radius: 0.25rem;
       border:0;
       text-transform: uppercase;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       font-weight: 950;
       transition: filter 0.2;
 
@@ -64,6 +64,12 @@ export const Container = styled.form`
 
     .inputContainer{
       margin-top: 1.5rem;
+    }
+
+    .inputButton{
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     hr{
