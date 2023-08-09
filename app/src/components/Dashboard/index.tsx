@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Monitor } from "./Monitor";
-import { BackgroundDetails, BackgroundDetails2, Container, Content, Form, Monitorias, TitleContainer } from "./styles";
+import { BackgroundDetails, BackgroundDetails2, Container, Content, Formis, Monitorias, TitleContainer } from "./styles";
+import { Form } from "./Form";
 
 
 interface DashboardProps {
@@ -21,15 +22,6 @@ interface inputData {
 }
 
 export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitores, handleSetToggleRenderToSelection, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
-    
-    const [name, setName] = useState('');
-    const [id, setId] = useState('');
-    const [classroom, setClassroom] = useState('');
-
-    const handleData = async (event: any) => {
-        event.preventDefault()
-        console.log('click')
-    }
 
     var render;
 
@@ -47,31 +39,7 @@ export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitores, handle
             })}
         </Monitorias>
     } else if (toggleRender === false) {
-        render = <Form>
-                    <div className="inputContainer">
-                        <label>Primeiro e último nome</label>
-                        <input placeholder="Ex: Bianca Maciel" onChange={(e) => setName(e.target.value)}></input>
-                    </div>
-
-
-
-                    <div className="inputContainer">
-                        <label>Matrícula</label>
-                        <input placeholder="Ex: 20191011120005" onChange={(e) => setId(e.target.value)}></input>
-                    </div>
-
-
-
-                    <div className="inputContainer">
-                        <label>Turma</label>
-                        <input placeholder="Ex: T02" onChange={(e) => setClassroom(e.target.value)}></input>
-                    </div>
-
-
-                    <div className="inputButton">
-                        <button onClick={(e) => typeof e} type="submit">Enviar</button>
-                    </div>
-        </Form>
+        render = <Form />
     }
 
 
@@ -80,20 +48,14 @@ export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitores, handle
         <Container>
             <BackgroundDetails2 />
             <BackgroundDetails />
-
             <Content>
                 <TitleContainer>
                     <h1>Presença da monitoria</h1>
                     <h2>Matemática Elementar</h2>
                 </TitleContainer>
-
                 <hr />
-
-                <div>
-                    {render}
-                </div>
+                {render}
             </Content>
-
         </Container>
     )
 }

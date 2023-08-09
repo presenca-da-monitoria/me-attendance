@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Dashboard } from "./components/Dashboard";
-import { ModalForm } from "./components/Form";
 import { GlobalStyle } from "./styles/global";
 import { monitorsSchedule, monitorInCharge } from "./monitorSchedule"
 
@@ -59,12 +58,10 @@ export function App() {
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
         toggleRender={toggleRender}
       />
-      <ModalForm
-        isOpen={modalIsOpen}
-        onRequestClose={handleCloseModal}
-        linkAPI={linkAPI}
-      />
+      
       <GlobalStyle />
     </>
   );
 }
+
+//linkAPI={linkAPI}
