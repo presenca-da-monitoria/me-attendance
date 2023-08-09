@@ -19,7 +19,7 @@ export function Dashboard({ handleOpenModal, monitores, handleSetLinkAPI }: Dash
                 <h1>Presença de monitoria</h1>
                 <h2>Matemática elementar</h2>
                 <div>
-                    <h1>Monitorias disponíveis:</h1>
+                    <h1>Monitorias do dia:</h1>
                     <Monitorias>
                         {monitores.map((monitor) => {
                             return (
