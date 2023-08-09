@@ -2,8 +2,8 @@ const express = require('express');
 const routes = express.Router();
 
 routes.post('/artur', (req,res) => {
-    const { nome, matricula } = req.body
-    res.send(nome);
+    const { nome, matricula, turma, data } = req.body
+    res.send({ nome, matricula, turma})
 })
 
 routes.get('/daniel', (req,res) => {
