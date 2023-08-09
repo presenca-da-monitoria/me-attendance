@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     *{
         padding: 0;
         box-sizing: border-box;
+        margin: 0;
     }
 
     html {
@@ -26,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-image: linear-gradient(#191A26 0%, #191A26 80%);
+        background: linear-gradient(to right, #509ca7, #22717e);
         -webkit-font-smoothing: antialiased;
     }
 
