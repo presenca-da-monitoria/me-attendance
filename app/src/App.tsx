@@ -52,7 +52,8 @@ export function App() {
     <>
       <Dashboard
         handleOpenModal={handleOpenModal}
-        monitores={monitoresNomes}
+        monitoresNomes={monitoresNomes}
+        monitoresHorarios={monitoresHorarios}
         handleSetLinkAPI={handleSetLinkApi}
         handleSetToggleRenderToSelection={handleSetToggleRenderToSelection}
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}

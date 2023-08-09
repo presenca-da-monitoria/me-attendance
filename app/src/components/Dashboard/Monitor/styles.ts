@@ -38,7 +38,7 @@ export const MonitorButton = styled.button`
     color: #fff;
     background: #15717E;
     border: 0;
-    padding: 0 2rem;
+    padding: 0 1rem;
     border-radius: 0.25rem;
     height: 3rem;
     width: 8rem;
