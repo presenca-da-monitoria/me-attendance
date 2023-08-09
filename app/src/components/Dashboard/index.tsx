@@ -12,12 +12,13 @@ interface DashboardProps {
 
 export function Dashboard({ handleOpenModal, monitores, handleSetLinkAPI }: DashboardProps) {
 
-
     return (
         <Container>
             <Content>
+                <header>
                 <h1>Presença de monitoria</h1>
                 <h2>Matemática elementar</h2>
+                </header>
                 <div>
                     <h1>Monitorias do dia:</h1>
                     <Monitorias>
