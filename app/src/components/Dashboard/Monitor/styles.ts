@@ -16,7 +16,18 @@ export const Monit = styled.div`
 
 export const Icon = styled.div``
 
-export const MonitorAndHour = styled.div``
+export const MonitorAndHour = styled.div`
+    h4 {
+        color: black;
+    }
+    p{
+        color: black;
+        text-align: left;
+    }
+
+    
+
+`
 
 
 
