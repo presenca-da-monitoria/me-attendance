@@ -57,28 +57,20 @@ export const TitleContainer = styled.div`
 
 
 export const Monitorias = styled.div`
-    display: flex;
-    justify-content: space-around;
-    h1{
-    color: white;
-    font-size: 18px;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
+  justify-content: space-between;
+
+  h1{
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
   h2{
     color: white;
     font-size: 14px;
     text-transform: uppercase;
   }
-    
-
-    div {
-        padding: 1rem 0.5rem;
-        border-radius: 0.25rem;
-    }
-    
-
 `
 
 /*width:100%;
@@ -92,5 +84,4 @@ export const Monitorias = styled.div`
     top:50%;
     margin-left:-400px;
     margin-top:-180px;
-
-    */
+*/
