@@ -1,3 +1,4 @@
+import {  Icon, Monit, MonitorAndHour, MonitorButton } from "./styles";
 
 
 interface MonitorProps {
@@ -6,11 +7,23 @@ interface MonitorProps {
     monitorName: string;
 }
 
-export function Monitor({handleOpenModal,monitorName, handleSetLinkAPI}: MonitorProps) {
+export function Monitor({handleOpenModal,handleSetLinkAPI,monitorName }: MonitorProps) {
 
     return (
-        <div>
-            <button onClick={() => { handleOpenModal(); handleSetLinkAPI(monitorName);}}>{monitorName}</button>
-        </div>
+        
+            <Monit>
+            <div>
+                <img src="./Fx.png" alt="aa" />
+            </div>
+
+            <MonitorAndHour>
+                {monitorName}
+                <p>Horário: 35T12</p>
+            </MonitorAndHour>
+
+            <MonitorButton onClick={() => { handleOpenModal(); handleSetLinkAPI(monitorName);}}>
+                Aplicar
+                </MonitorButton>
+        </Monit>
     )
 }
