@@ -35,18 +35,31 @@ export function ModalForm({ isOpen, onRequestClose, linkAPI }: modalFormProps) {
                 className='react-modal-content'
             >
                 <Container action={linkAPI}>
-                    <h1>Presença da monitoria</h1>
+                    <div className="titleContainer">
+                        <h1>Presença da monitoria</h1>
+                        <h2>Matemática Elementar</h2>
+                    </div>
+
+                    <hr />
+
+                    <div className="inputContainer">
+                        <label>Primeiro e último nome</label>
+                        <input placeholder="Ex: Bianca Maciel" onChange={(e) => setName(e.target.value)}></input>
+                    </div>
 
 
-                    <input placeholder="Nome completo" onChange={(e) => setName(e.target.value)}></input>
+
+                    <div className="inputContainer">
+                        <label>Matrícula</label>
+                        <input placeholder="Ex: 20191011120005" onChange={(e) => setId(e.target.value)}></input>
+                    </div>
 
 
 
-                    <input placeholder="Matrícula" type="number"onChange={(e) => setId(e.target.value)}></input>
-
-
-
-                    <input placeholder="Turma" onChange={(e) => setClassroom(e.target.value)}></input>
+                    <div className="inputContainer">
+                        <label>Turma</label>
+                        <input placeholder="Ex: T02" onChange={(e) => setClassroom(e.target.value)}></input>
+                    </div>
 
 
                     <button onClick={(e) => typeof e} type="submit">Enviar</button>
