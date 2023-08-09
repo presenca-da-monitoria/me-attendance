@@ -62,7 +62,9 @@ export function ModalForm({ isOpen, onRequestClose, linkAPI }: modalFormProps) {
                     </div>
 
 
-                    <button onClick={(e) => typeof e} type="submit">Enviar</button>
+                    <div className="inputButton">
+                        <button onClick={(e) => typeof e} type="submit">Enviar</button>
+                    </div>
 
                 </Container>
 
