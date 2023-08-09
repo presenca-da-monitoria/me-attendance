@@ -2,7 +2,6 @@ import { Icon, Monit, MonitorAndHour, MonitorButton } from "./styles";
 
 
 interface MonitorProps {
-    handleOpenModal: () => void;
     handleSetLinkAPI: (monitor: string) => void;
     monitorName: string;
     handleSetToggleRenderToForm: () => void;

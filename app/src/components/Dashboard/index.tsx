@@ -5,13 +5,13 @@ import { Form } from "./Form";
 
 
 interface DashboardProps {
-    handleOpenModal: () => void;
     handleSetLinkAPI: (monitor: string) => void;
     handleSetToggleRenderToSelection: () => void;
     handleSetToggleRenderToForm: () => void;
 
     monitores: string[];
     toggleRender: boolean;
+    linkAPI: string;
 
 }
 
@@ -21,7 +21,7 @@ interface inputData {
     classroom: string
 }
 
-export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitores, handleSetToggleRenderToSelection, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
+export function Dashboard({ linkAPI, handleSetLinkAPI, monitores, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
 
     var render;
 
@@ -30,7 +30,6 @@ export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitores, handle
             {monitores.map((monitor) => {
                 return (
                     <Monitor
-                        handleOpenModal={handleOpenModal}
                         monitorName={monitor}
                         handleSetLinkAPI={handleSetLinkAPI}
                         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
@@ -39,7 +38,7 @@ export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitores, handle
             })}
         </Monitorias>
     } else if (toggleRender === false) {
-        render = <Form />
+        render = <Form linkAPI={linkAPI} />
     }
 
 

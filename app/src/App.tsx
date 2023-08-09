@@ -22,11 +22,17 @@ export function App() {
   function handleSetLinkApi(monitor: string) {
     if (monitor === 'Paz') {
       setLinkAPI('www.linkdaapi/Paz')
-    } else if (monitor === 'Pedro Maneiro') {
+    } else if (monitor === 'Pedro') {
       setLinkAPI('www.linkdaapi/pedro-maneiro')
     } else if (monitor === 'Raquel') {
       setLinkAPI('www.linkdaapi/Raquel')
-    }
+    } else if (monitor === 'Arthur') {
+      setLinkAPI('www.linkdaapi/Arthur')
+    } else if (monitor === 'Dante') {
+      setLinkAPI('www.linkdaapi/Dante')
+    } else if (monitor === 'Exercicios') {
+      setLinkAPI('www.linkdaapi/Exercicios')
+    } 
   }
 
   let monitores = monitorInCharge(monitorsSchedule)
@@ -38,25 +44,17 @@ export function App() {
     monitoresHorarios.push(monitores[i].horario)
   }
 
-  const [modalIsOpen, setIsOpen] = useState(false);
 
-  function handleOpenModal() {
-    setIsOpen(true);
-  }
-
-  function handleCloseModal() {
-    setIsOpen(false);
-  }
 
   return (
     <>
       <Dashboard
-        handleOpenModal={handleOpenModal}
         monitores={monitoresNomes}
         handleSetLinkAPI={handleSetLinkApi}
         handleSetToggleRenderToSelection={handleSetToggleRenderToSelection}
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
         toggleRender={toggleRender}
+        linkAPI={linkAPI}
       />
       
       <GlobalStyle />
@@ -64,4 +62,3 @@ export function App() {
   );
 }
 
-//linkAPI={linkAPI}
