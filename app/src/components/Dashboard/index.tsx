@@ -22,7 +22,7 @@ interface inputData {
     classroom: string
 }
 
-export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitoresNomes, monitoresHorarios, handleSetToggleRenderToSelection, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
+export function Dashboard({ linkAPI, handleSetLinkAPI, monitoresNomes, monitoresHorarios, handleSetToggleRenderToSelection, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
 
     var render;
 
@@ -31,8 +31,8 @@ export function Dashboard({ handleOpenModal, handleSetLinkAPI, monitoresNomes, m
             {monitoresNomes.map((monitorName, i) => {
                 return (
                     <Monitor
-                        handleOpenModal={handleOpenModal}
-                        monitorName={monitor}
+                        monitorName={monitorName}
+                        monitorClass={monitoresHorarios[i]}
                         handleSetLinkAPI={handleSetLinkAPI}
                         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
                     />
