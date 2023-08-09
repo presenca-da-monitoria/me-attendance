@@ -2,13 +2,12 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
 `
 
 export const Content = styled.div`
@@ -49,7 +48,7 @@ export const Content = styled.div`
 export const Monitorias = styled.div`
     display: flex;
     justify-content: space-around;
-
+    
 
     div {
         padding: 1rem 0.5rem;
