@@ -5,9 +5,10 @@ interface MonitorProps {
     handleOpenModal: () => void;
     handleSetLinkAPI: (monitor: string) => void;
     monitorName: string;
+    handleSetToggleRenderToForm: () => void;
 }
 
-export function Monitor({ handleOpenModal, handleSetLinkAPI, monitorName }: MonitorProps) {
+export function Monitor({ handleSetLinkAPI, monitorName, handleSetToggleRenderToForm }: MonitorProps) {
 
     return (
 
@@ -23,7 +24,7 @@ export function Monitor({ handleOpenModal, handleSetLinkAPI, monitorName }: Moni
                 <p>Horário: 35T12</p>
             </MonitorAndHour>
 
-            <MonitorButton onClick={() => { handleOpenModal(); handleSetLinkAPI(monitorName); }}>
+            <MonitorButton onClick={() => { handleSetLinkAPI(monitorName); handleSetToggleRenderToForm()}}>
                 Aplicar
             </MonitorButton>
         </Monit>
