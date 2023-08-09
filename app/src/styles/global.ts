@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     *{
-        margin: 0;
+
         padding: 0;
         box-sizing: border-box;
 
@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: #2B2D42;
+        background: linear-gradient(to right, #509ca7, #22717e);
         -webkit-font-smoothing: antialiased;
     }
 
@@ -53,7 +53,6 @@ export const GlobalStyle = createGlobalStyle`
       
     
     .react-modal-overlay{
-    background: rgba(0,0,0,0.5);
     position: fixed;
     top:0;
     bottom:0;
@@ -68,7 +67,7 @@ export const GlobalStyle = createGlobalStyle`
     .react-modal-content {
         width: 100%;
         max-width: 576px;
-        background: #15717E;
+        background: white;
         padding: 3rem;
         position:relative;
         border-radius: 0.25rem;
