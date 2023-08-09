@@ -12,9 +12,9 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     width: 100%;
-    max-width: fit-content;
+    max-width: 690px;
     height: 100%;
-    max-height: 350px;
+    max-height: 690px;
     border-radius: 0.25rem;
     background-color: #15717E;
     padding: 1.5rem 1rem 12rem;
