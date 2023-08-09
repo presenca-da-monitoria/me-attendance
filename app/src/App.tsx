@@ -16,8 +16,6 @@ export function App() {
     setToggleRender(false)
   }
 
-
-
   //Esse setLinkAPI vai buscar os dados lá no component Monitor e atualiza ele quando clica-se no botão, o valor 
   // escolhido é usado e enviado ao modal na hora de abrir o component modal (linha 47)
   const [linkAPI, setLinkAPI] = useState('')
@@ -32,11 +30,15 @@ export function App() {
     }
   }
 
-  
-  
-  const monitores = monitorInCharge(monitorsSchedule)
+  let monitores = monitorInCharge(monitorsSchedule)
+  let monitoresNomes = []
+  let monitoresHorarios = []
 
-  
+  for (let i=0; i < monitores.length; i++){
+    monitoresNomes.push(monitores[i].nome)
+    monitoresHorarios.push(monitores[i].horario)
+  }
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function handleOpenModal() {
@@ -47,12 +49,11 @@ export function App() {
     setIsOpen(false);
   }
 
-
   return (
     <>
       <Dashboard
         handleOpenModal={handleOpenModal}
-        monitores={monitores}
+        monitores={monitoresNomes}
         handleSetLinkAPI={handleSetLinkApi}
         handleSetToggleRenderToSelection={handleSetToggleRenderToSelection}
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
