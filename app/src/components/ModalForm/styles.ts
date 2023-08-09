@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const Container = styled.form`
   
   .titleContainer {
-    padding: 1.5rem;
+    padding: 1rem;
     background: linear-gradient(to right, #509ca7, #22717e);
   }
   
@@ -67,7 +67,7 @@ export const Container = styled.form`
     }
 
     hr{
-      margin-top 100px;
+      margin-top: 2rem;
       background-color: black;
     }
 `

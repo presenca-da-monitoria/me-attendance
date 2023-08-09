@@ -1,5 +1,5 @@
 import { Monitor } from "./Monitor";
-import { Container, Content, Monitorias } from "./styles";
+import { Container, Content, Monitorias, TitleContainer } from "./styles";
 
 
 interface DashboardProps {
@@ -15,12 +15,14 @@ export function Dashboard({ handleOpenModal, monitores, handleSetLinkAPI }: Dash
     return (
         <Container>
             <Content>
-                <header>
-                <h1>Presença de monitoria</h1>
-                <h2>Matemática elementar</h2>
-                </header>
+                <TitleContainer>
+                    <h1>Presença da monitoria</h1>
+                    <h2>Matemática Elementar</h2>
+                </TitleContainer>
+
+                <hr />
+                
                 <div>
-                    <h1>Monitorias do dia:</h1>
                     <Monitorias>
                         {monitores.map((monitor) => {
                             return (

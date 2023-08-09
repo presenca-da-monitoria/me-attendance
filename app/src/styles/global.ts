@@ -9,10 +9,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     *{
-
         padding: 0;
         box-sizing: border-box;
-
     }
 
     html {
@@ -58,7 +56,6 @@ export const GlobalStyle = createGlobalStyle`
     bottom:0;
     left:0;
     right:0;
-
     display: flex;
     align-items: center;
     justify-content: center;
