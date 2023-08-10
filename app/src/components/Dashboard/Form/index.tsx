@@ -3,10 +3,15 @@ import { Container } from "./styles";
 import axios from "axios";
 
 interface FormProps {
+
+    //functions
+    handleOpenModal: () => void;
+
+    //consts    
     linkAPI:string;
 }
 
-export function Form({linkAPI}:FormProps) {
+export function Form({handleOpenModal, linkAPI}:FormProps) {
 
     const [name, setName] = useState('');
     const [id, setId] = useState('');
@@ -31,7 +36,7 @@ export function Form({linkAPI}:FormProps) {
     }
 
     return (
-        <Container action={linkAPI}>
+        <Container>
             <div className="inputContainer">
                 <label>Primeiro e último nome</label>
                 <input placeholder="Ex: Bianca Maciel" onChange={(e) => setName(e.target.value)}></input>
@@ -48,7 +53,7 @@ export function Form({linkAPI}:FormProps) {
             </div>
 
             <div className="inputButton">
-                <button onClick={(e) => handleData(e)} type="submit">Enviar</button>
+                <button onClick={(e) => {handleData(e); handleOpenModal()}} type="submit">Enviar</button>
             </div>
         </Container>
     )

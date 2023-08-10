@@ -5,10 +5,14 @@ import { Form } from "./Form";
 
 
 interface DashboardProps {
+    //Functions
     handleSetLinkAPI: (monitor: string) => void;
-    //handleSetToggleRenderToSelection: () => void;
     handleSetToggleRenderToForm: () => void;
+    handleOpenModal: () => void;
 
+    //handleSetToggleRenderToSelection: () => void;
+
+    //consts
     monitoresNomes: string[];
     monitoresHorarios: string[];
     toggleRender: boolean;
@@ -22,7 +26,7 @@ interface inputData {
     classroom: string
 }
 
-export function Dashboard({ linkAPI, handleSetLinkAPI, monitoresNomes, monitoresHorarios, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
+export function Dashboard({ handleSetToggleRenderToForm, handleSetLinkAPI, handleOpenModal,linkAPI, monitoresNomes, monitoresHorarios, toggleRender }: DashboardProps) {
 
     var render;
 
@@ -40,7 +44,10 @@ export function Dashboard({ linkAPI, handleSetLinkAPI, monitoresNomes, monitores
             })}
         </Monitorias>
     } else if (toggleRender === false) {
-        render = <Form linkAPI={linkAPI} />
+        render = <Form 
+        linkAPI={linkAPI}
+        handleOpenModal={handleOpenModal}
+        />
     }
 
 

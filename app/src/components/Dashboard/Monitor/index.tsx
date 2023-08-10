@@ -2,13 +2,17 @@ import { Icon, Monit, MonitorAndHour, MonitorButton } from "./styles";
 
 
 interface MonitorProps {
+    //Functions
     handleSetLinkAPI: (monitor: string) => void;
+    handleSetToggleRenderToForm: () => void;
+
+    //consts
     monitorName: string;
     monitorClass: string;
-    handleSetToggleRenderToForm: () => void;
+    
 }
 
-export function Monitor({ handleSetLinkAPI, monitorName, monitorClass, handleSetToggleRenderToForm }: MonitorProps) {
+export function Monitor({ handleSetLinkAPI, handleSetToggleRenderToForm, monitorName, monitorClass  }: MonitorProps) {
 
     return (
 
