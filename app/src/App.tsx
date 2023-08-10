@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Dashboard } from "./components/Dashboard";
 import { GlobalStyle } from "./styles/global";
-import { monitorsSchedule, monitorInCharge } from "./monitorSchedule"
+import { monitorInCharge } from "./features/monitorInCharge"
+import { monitorsSchedule } from "./features/monitorsSchedule";
 
 export function App() {
 
@@ -19,6 +20,7 @@ export function App() {
   // escolhido é usado e enviado ao modal na hora de abrir o component modal (linha 47)
   const [linkAPI, setLinkAPI] = useState('')
 
+  //lembrar de dar um .toLowerCase() quando importar o nome do monitor do array de monitorsSchedule
   function handleSetLinkApi(monitor: string) {
     if (monitor === 'Paz') {
       setLinkAPI('www.linkdaapi/Paz')
@@ -35,9 +37,9 @@ export function App() {
     } 
   }
 
-  let monitores = monitorInCharge(monitorsSchedule)
-  let monitoresNomes = []
-  let monitoresHorarios = []
+  let monitores = monitorInCharge(monitorsSchedule) //recebe o array de objetos referente aos monitores do dia
+  let monitoresNomes = [] //recebe um array dos nomes dos monitores
+  let monitoresHorarios = [] //recebe um array com os horários dos monitores
 
   for (let i=0; i < monitores.length; i++){
     monitoresNomes.push(monitores[i].nome)
