@@ -5,6 +5,8 @@ import { monitorInCharge } from "./features/monitorInCharge"
 import { monitorsSchedule } from "./features/monitorsSchedule";
 import { ModalPopUp } from "./components/ModalPopUp";
 
+
+
 export function App() {
 
 
@@ -66,7 +68,6 @@ export function App() {
         handleSetLinkAPI={handleSetLinkApi}
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
         handleOpenModal={handleOpenModalPopUp}
-        //handleSetToggleRenderToSelection={handleSetToggleRenderToSelection}
 
         monitoresNomes={monitoresNomes}
         monitoresHorarios={monitoresHorarios}
@@ -75,7 +76,10 @@ export function App() {
 
       />
       <ModalPopUp
+      closeModalPopUp={handleCloseModalPopUp}
+      returnToSelection={handleSetToggleRenderToSelection}
       isOpen={isModalPopUpOpen}
+      isSend={true}
       />
       <GlobalStyle />
     </>
