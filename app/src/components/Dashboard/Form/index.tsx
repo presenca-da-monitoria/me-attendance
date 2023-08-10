@@ -14,7 +14,20 @@ export function Form({linkAPI}:FormProps) {
 
     const handleData = async (event: any) => {
         event.preventDefault()
-        console.log('click')
+
+        const dateFormat = new Intl.DateTimeFormat('pt-BR', {
+            dateStyle: 'short',
+            timeStyle: 'short',
+        })
+        const formatedDate = dateFormat.format(new Date())
+
+        const response = await axios.post(
+        'http://localhost:3001/artur', 
+        JSON.stringify({name, id, classroom, formatedDate}),
+        {
+            headers: { 'Content-Type': 'application/json' }
+        })
+        console.log(name, id, classroom, formatedDate)
     }
 
     return (
