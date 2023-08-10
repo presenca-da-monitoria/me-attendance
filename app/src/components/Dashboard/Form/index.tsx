@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container } from "./styles";
+import axios from "axios";
 
 interface FormProps {
     linkAPI:string;
@@ -13,8 +14,14 @@ export function Form({linkAPI}:FormProps) {
 
     const handleData = async (event: any) => {
         event.preventDefault()
-        console.log('click')
+        const response = await axios.post(
+        'http://localhost:3001/artur', 
+        JSON.stringify({name, id, classroom}),
+        {
+            headers: { 'Content-Type': 'application/json' }
+        })
     }
+
     return (
         <Container action={linkAPI}>
             <div className="inputContainer">
@@ -33,7 +40,7 @@ export function Form({linkAPI}:FormProps) {
             </div>
 
             <div className="inputButton">
-                <button onClick={(e) => typeof e} type="submit">Enviar</button>
+                <button onClick={(e) => handleData} type="submit">Enviar</button>
             </div>
         </Container>
     )
