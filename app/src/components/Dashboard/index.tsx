@@ -6,7 +6,7 @@ import { Form } from "./Form";
 
 interface DashboardProps {
     handleSetLinkAPI: (monitor: string) => void;
-    handleSetToggleRenderToSelection: () => void;
+    //handleSetToggleRenderToSelection: () => void;
     handleSetToggleRenderToForm: () => void;
 
     monitoresNomes: string[];
@@ -22,7 +22,7 @@ interface inputData {
     classroom: string
 }
 
-export function Dashboard({ linkAPI, handleSetLinkAPI, monitoresNomes, monitoresHorarios, handleSetToggleRenderToSelection, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
+export function Dashboard({ linkAPI, handleSetLinkAPI, monitoresNomes, monitoresHorarios, handleSetToggleRenderToForm, toggleRender }: DashboardProps) {
 
     var render;
 

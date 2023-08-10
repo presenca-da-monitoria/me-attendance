@@ -54,7 +54,7 @@ export function App() {
         monitoresNomes={monitoresNomes}
         monitoresHorarios={monitoresHorarios}
         handleSetLinkAPI={handleSetLinkApi}
-        handleSetToggleRenderToSelection={handleSetToggleRenderToSelection}
+        //handleSetToggleRenderToSelection={handleSetToggleRenderToSelection}
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
         toggleRender={toggleRender}
         linkAPI={linkAPI}

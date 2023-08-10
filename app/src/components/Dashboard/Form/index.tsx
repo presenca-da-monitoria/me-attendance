@@ -14,12 +14,7 @@ export function Form({linkAPI}:FormProps) {
 
     const handleData = async (event: any) => {
         event.preventDefault()
-        const response = await axios.post(
-        'http://localhost:3001/artur', 
-        JSON.stringify({name, id, classroom}),
-        {
-            headers: { 'Content-Type': 'application/json' }
-        })
+        console.log('click')
     }
 
     return (
@@ -40,8 +35,17 @@ export function Form({linkAPI}:FormProps) {
             </div>
 
             <div className="inputButton">
-                <button onClick={(e) => handleData} type="submit">Enviar</button>
+                <button onClick={(e) => handleData(e)} type="submit">Enviar</button>
             </div>
         </Container>
     )
 }
+
+/*
+const response = await axios.post(
+            'http://localhost:3001/artur', 
+            JSON.stringify({name, id, classroom}),
+            {
+                headers: { 'Content-Type': 'application/json' }
+            })
+*/
