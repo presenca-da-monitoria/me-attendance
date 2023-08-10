@@ -2,19 +2,19 @@ const express = require('express');
 const routes = express.Router();
 
 routes.post('/artur', (req,res) => {
-    const { nome, matricula, turma, } = req.body
+    const { nome, matricula, turma, data } = req.body
     
-    const formatDate = new Intl.DateTimeFormat('pt-BR', {
-    dateStyle: 'short',
-    timeStyle: 'short',
-    })
+    if(nome && matricula && turma && data){
+        return res.status(200).json({status: "Recebido"})
+    }
+    return res.status(401).json({mensagem: "inválido"})
 
-    res.send( {
-        "data": formatDate.format(new Date()),
-        "nome": nome,
-        "matricula": matricula,
-        "turma": turma
-    })
+    // res.send( {
+    //     "data": formatDate.format(new Date()),
+    //     "nome": nome,
+    //     "matricula": matricula,
+    //     "turma": turma
+    // })
 })
 
 routes.get('/dante', (req,res) => {
