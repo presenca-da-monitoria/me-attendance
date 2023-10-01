@@ -3,12 +3,13 @@ import { Dashboard } from "./components/Dashboard";
 import { GlobalStyle } from "./styles/global";
 import { monitorInCharge } from "./features/monitorInCharge"
 import { monitorsSchedule } from "./features/monitorsSchedule";
-import { ModalPopUp } from "./components/ModalPopUp";
+import ModalPopUp from "./components/ModalPopUp";
 
 
 
 export function App() {
 
+  var render = <></>
 
   //useState para controlar a renderização de components
   const [toggleRender, setToggleRender] = useState(true);
@@ -21,25 +22,31 @@ export function App() {
     setToggleRender(false)
   }
 
-  //Esse setLinkAPI vai buscar os dados lá no component Monitor e atualiza ele quando clica-se no botão, o valor 
+  //Esse setMonitorAPI vai buscar os dados lá no component Monitor e atualiza ele quando clica-se no botão, o valor 
   // escolhido é usado e enviado ao modal na hora de abrir o component modal (linha 47)
-  const [linkAPI, setLinkAPI] = useState('')
+  const [monitorAPI, setMonitorAPI] = useState('')
 
   //lembrar de dar um .toLowerCase() quando importar o nome do monitor do array de monitorsSchedule
-  function handleSetLinkApi(monitor: string) {
-    if (monitor === 'Paz') {
-      setLinkAPI('www.linkdaapi/Paz')
-    } else if (monitor === 'Pedro') {
-      setLinkAPI('www.linkdaapi/pedro-maneiro')
-    } else if (monitor === 'Raquel') {
-      setLinkAPI('www.linkdaapi/Raquel')
-    } else if (monitor === 'Arthur') {
-      setLinkAPI('www.linkdaapi/Arthur')
-    } else if (monitor === 'Dante') {
-      setLinkAPI('www.linkdaapi/Dante')
-    } else if (monitor === 'Exercicios') {
-      setLinkAPI('www.linkdaapi/Exercicios')
+  function handleSetMonitorAPI(monitor: string) {
+    type MonitorMappingType = {
+      [key: string]: string;
+    };
+    
+    const monitorMapping: MonitorMappingType = {
+      'Paz': 'Paz',
+      'Pedro': 'Pedro-Maneiro',
+      'Raquel': 'Raquel',
+      'Arthur': 'Arthur',
+      'Dante': 'Dante',
+      'Exercicios': 'Exercicios'
+    };
+    
+    if (monitor in monitorMapping) {
+      setMonitorAPI(monitorMapping[monitor]);
+    } else {
+      // Lidere com o caso em que 'monitor' não corresponda a nenhum valor conhecido, se necessário.
     }
+    
   }
 
   let monitores = monitorInCharge(monitorsSchedule) //recebe o array de objetos referente aos monitores do dia
@@ -62,25 +69,30 @@ export function App() {
     setIsModalPopUpOpen(false)
   }
 
+  if (isModalPopUpOpen) {
+    render =
+      <ModalPopUp
+        onReturn={handleCloseModalPopUp}
+        returnToSelection={handleSetToggleRenderToSelection}
+      />;
+  } else {
+    render = <></>
+  }
+
   return (
     <>
       <Dashboard
-        handleSetLinkAPI={handleSetLinkApi}
+        handleSetMonitorAPI={handleSetMonitorAPI}
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
         handleOpenModal={handleOpenModalPopUp}
 
         monitoresNomes={monitoresNomes}
         monitoresHorarios={monitoresHorarios}
         toggleRender={toggleRender}
-        linkAPI={linkAPI}
+        monitorAPI={monitorAPI}
 
       />
-      <ModalPopUp
-      closeModalPopUp={handleCloseModalPopUp}
-      returnToSelection={handleSetToggleRenderToSelection}
-      isOpen={isModalPopUpOpen}
-      isSend={true}
-      />
+      {render}
       <GlobalStyle />
     </>
   );

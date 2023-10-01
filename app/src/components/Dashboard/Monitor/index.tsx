@@ -1,9 +1,9 @@
-import { Icon, Monit, MonitorAndHour, MonitorButton } from "./styles";
+import { Monit, MonitorAndHour, MonitorButton } from "./styles";
 
 
 interface MonitorProps {
     //Functions
-    handleSetLinkAPI: (monitor: string) => void;
+    handleSetMonitorAPI: (monitor: string) => void;
     handleSetToggleRenderToForm: () => void;
 
     //consts
@@ -12,7 +12,7 @@ interface MonitorProps {
     
 }
 
-export function Monitor({ handleSetLinkAPI, handleSetToggleRenderToForm, monitorName, monitorClass  }: MonitorProps) {
+export function Monitor({ handleSetMonitorAPI, handleSetToggleRenderToForm, monitorName, monitorClass  }: MonitorProps) {
 
     return (
 
@@ -23,7 +23,7 @@ export function Monitor({ handleSetLinkAPI, handleSetToggleRenderToForm, monitor
                 <p>Horário: {monitorClass}</p>
             </MonitorAndHour>
 
-            <MonitorButton onClick={() => { handleSetLinkAPI(monitorName); handleSetToggleRenderToForm()}}>
+            <MonitorButton onClick={() => { handleSetMonitorAPI(monitorName); handleSetToggleRenderToForm()}}>
                 Preencher
             </MonitorButton>
         </Monit>

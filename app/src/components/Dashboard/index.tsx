@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { Monitor } from "./Monitor";
-import { BackgroundDetails, BackgroundDetails2, Container, Content, Formis, Monitorias, TitleContainer } from "./styles";
+import { BackgroundDetails, BackgroundDetails2, Container, Content, Monitorias, TitleContainer } from "./styles";
 import { Form } from "./Form";
 
 
 interface DashboardProps {
     //Functions
-    handleSetLinkAPI: (monitor: string) => void;
+    handleSetMonitorAPI: (monitor: string) => void;
     handleSetToggleRenderToForm: () => void;
     handleOpenModal: () => void;
 
@@ -16,37 +15,35 @@ interface DashboardProps {
     monitoresNomes: string[];
     monitoresHorarios: string[];
     toggleRender: boolean;
-    linkAPI: string;
+    monitorAPI: string;
 
 }
 
-interface inputData {
-    name: string,
-    id: string,
-    classroom: string
-}
-
-export function Dashboard({ handleSetToggleRenderToForm, handleSetLinkAPI, handleOpenModal,linkAPI, monitoresNomes, monitoresHorarios, toggleRender }: DashboardProps) {
+export function Dashboard({ handleSetToggleRenderToForm, handleSetMonitorAPI, handleOpenModal, monitorAPI, monitoresNomes, monitoresHorarios, toggleRender }: DashboardProps) {
 
     var render;
 
     if (toggleRender === true) {
-        render = <Monitorias>
-            {monitoresNomes.map((monitorName, i) => {
-                return (
-                    <Monitor
-                        monitorName={monitorName}
-                        monitorClass={monitoresHorarios[i]}
-                        handleSetLinkAPI={handleSetLinkAPI}
-                        handleSetToggleRenderToForm={handleSetToggleRenderToForm}
-                    />
-                )
-            })}
-        </Monitorias>
+        if (monitoresNomes.length === 0) {
+            render = <p style={{ color: "black", marginTop: "1.5rem",fontSize: "2rem" }}>Sem monitoria hoje!</p>
+        } else {
+            render = <Monitorias>
+                {monitoresNomes.map((monitorName, i) => {
+                    return (
+                        <Monitor
+                            monitorName={monitorName}
+                            monitorClass={monitoresHorarios[i]}
+                            handleSetMonitorAPI={handleSetMonitorAPI}
+                            handleSetToggleRenderToForm={handleSetToggleRenderToForm}
+                        />
+                    )
+                })}
+            </Monitorias>
+        }
     } else if (toggleRender === false) {
-        render = <Form 
-        linkAPI={linkAPI}
-        handleOpenModal={handleOpenModal}
+        render = <Form
+            monitorAPI={monitorAPI}
+            handleOpenModal={handleOpenModal}
         />
     }
 
@@ -67,28 +64,3 @@ export function Dashboard({ handleSetToggleRenderToForm, handleSetLinkAPI, handl
         </Container>
     )
 }
-
-
-/*<Content>
-                <TitleContainer>
-                    <h1>Presença da monitoria</h1>
-                    <h2>Matemática Elementar</h2>
-                </TitleContainer>
-
-                <hr />
-                
-                <div>
-                    <Monitorias>
-                        {monitores.map((monitor) => {
-                            return (
-                                <Monitor
-                                    handleOpenModal={handleOpenModal}
-                                    monitorName={monitor}
-                                    handleSetLinkAPI={handleSetLinkAPI}
-                                />
-                            )
-                        })}
-                    </Monitorias>
-                </div>
-            </Content>
-*/

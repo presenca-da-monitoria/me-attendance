@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Container } from "./styles";
-import axios from "axios";
 
 interface FormProps {
 
@@ -8,10 +7,10 @@ interface FormProps {
     handleOpenModal: () => void;
 
     //consts    
-    linkAPI:string;
+    monitorAPI: string;
 }
 
-export function Form({handleOpenModal, linkAPI}:FormProps) {
+export function Form({ handleOpenModal, monitorAPI }: FormProps) {
 
     const [name, setName] = useState('');
     const [id, setId] = useState('');
@@ -25,14 +24,27 @@ export function Form({handleOpenModal, linkAPI}:FormProps) {
             timeStyle: 'short',
         })
         const formatedDate = dateFormat.format(new Date())
-
-        const response = await axios.post(
-        'http://localhost:3001/artur', 
-        JSON.stringify({name, id, classroom, formatedDate}),
-        {
-            headers: { 'Content-Type': 'application/json' }
+        fetch('https://sheetdb.io/api/v1/y28qaf18c7npw', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                data: [
+                    {
+                        'id': "INCREMENT",
+                        'date': formatedDate,
+                        'name': name,
+                        'matricula': id,
+                        'classroom': classroom,
+                        'monitor': monitorAPI
+                    }
+                ]
+            })
         })
-        console.log(name, id, classroom, formatedDate)
+            .then((response) => response.json())
+            .then((data) => console.log(data));
     }
 
     return (
@@ -53,17 +65,8 @@ export function Form({handleOpenModal, linkAPI}:FormProps) {
             </div>
 
             <div className="inputButton">
-                <button onClick={(e) => {handleData(e); handleOpenModal()}} type="submit">Enviar</button>
+                <button onClick={(e) => { handleData(e); handleOpenModal() }} type="submit">Enviar</button>
             </div>
         </Container>
     )
 }
-
-/*
-const response = await axios.post(
-            'http://localhost:3001/artur', 
-            JSON.stringify({name, id, classroom}),
-            {
-                headers: { 'Content-Type': 'application/json' }
-            })
-*/
