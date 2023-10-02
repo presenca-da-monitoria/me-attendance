@@ -38,7 +38,8 @@ export function App() {
       'Raquel': 'Raquel',
       'Arthur': 'Arthur',
       'Dante': 'Dante',
-      'Exercicios': 'Exercicios'
+      'Gabi': 'Gabi',
+      'Daniel': 'Daniel'
     };
     
     if (monitor in monitorMapping) {
@@ -85,7 +86,6 @@ export function App() {
         handleSetMonitorAPI={handleSetMonitorAPI}
         handleSetToggleRenderToForm={handleSetToggleRenderToForm}
         handleOpenModal={handleOpenModalPopUp}
-
         monitoresNomes={monitoresNomes}
         monitoresHorarios={monitoresHorarios}
         toggleRender={toggleRender}
