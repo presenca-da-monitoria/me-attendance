@@ -23,7 +23,7 @@ export function Form({ handleOpenModal, monitorAPI }: FormProps) {
             dateStyle: 'short',
             timeStyle: 'short',
         })
-        const formatedDate = dateFormat.format(new Date())
+        const formatedDate = dateFormat.format(new Date)
         fetch('https://sheetdb.io/api/v1/y28qaf18c7npw', {
             method: 'POST',
             headers: {
@@ -34,7 +34,7 @@ export function Form({ handleOpenModal, monitorAPI }: FormProps) {
                 data: [
                     {
                         'id': "INCREMENT",
-                        'date': formatedDate,
+                        'data': formatedDate,
                         'name': name,
                         'matricula': id,
                         'classroom': classroom,
@@ -65,7 +65,7 @@ export function Form({ handleOpenModal, monitorAPI }: FormProps) {
             </div>
 
             <div className="inputButton">
-                <button onClick={(e) => { handleData(e); handleOpenModal() }} type="submit">Enviar</button>
+                <button onClick={(e) => { handleData(e); handleOpenModal(); }} type="submit">Enviar</button>
             </div>
         </Container>
     )

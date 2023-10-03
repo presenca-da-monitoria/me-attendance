@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Dashboard } from "./components/Dashboard";
-import { GlobalStyle } from "./styles/global";
+import { useState } from "react"
+import { Dashboard } from "./components/Dashboard"
+import { GlobalStyle } from "./styles/global"
 import { monitorInCharge } from "./features/monitorInCharge"
-import { monitorsSchedule } from "./features/monitorsSchedule";
-import ModalPopUp from "./components/ModalPopUp";
+import { monitorsSchedule } from "./features/monitorsSchedule"
+import ModalPopUp from "./components/ModalPopUp"
 
 
 
@@ -12,7 +12,7 @@ export function App() {
   var render = <></>
 
   //useState para controlar a renderização de components
-  const [toggleRender, setToggleRender] = useState(true);
+  const [toggleRender, setToggleRender] = useState(true)
 
   function handleSetToggleRenderToSelection() {
     setToggleRender(true)
@@ -28,26 +28,9 @@ export function App() {
 
   //lembrar de dar um .toLowerCase() quando importar o nome do monitor do array de monitorsSchedule
   function handleSetMonitorAPI(monitor: string) {
-    type MonitorMappingType = {
-      [key: string]: string;
-    };
-    
-    const monitorMapping: MonitorMappingType = {
-      'Paz': 'Paz',
-      'Pedro': 'Pedro-Maneiro',
-      'Raquel': 'Raquel',
-      'Arthur': 'Arthur',
-      'Dante': 'Dante',
-      'Gabi': 'Gabi',
-      'Daniel': 'Daniel'
-    };
-    
-    if (monitor in monitorMapping) {
-      setMonitorAPI(monitorMapping[monitor]);
-    } else {
-      // Lidere com o caso em que 'monitor' não corresponda a nenhum valor conhecido, se necessário.
-    }
-    
+    setMonitorAPI(monitor);
+
+
   }
 
   let monitores = monitorInCharge(monitorsSchedule) //recebe o array de objetos referente aos monitores do dia
@@ -90,7 +73,6 @@ export function App() {
         monitoresHorarios={monitoresHorarios}
         toggleRender={toggleRender}
         monitorAPI={monitorAPI}
-
       />
       {render}
       <GlobalStyle />
