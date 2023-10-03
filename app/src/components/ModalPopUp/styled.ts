@@ -5,10 +5,10 @@ export const SuccessContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-height: 256px;
-  max-width: 512px;
-  height: 100%;
+  width: 512px;
+  max-height: 100%;
+  max-width: 100%;
+  height: 256px;
   border: 1px solid #ddd;
   margin: auto;
   position: absolute;
