@@ -1,8 +1,6 @@
 # me-attendance
 Para rodar, clone o repo e então, coloque no terminal: 
 
-`cd app`
-
 `npm start`
 
 # coisas pra fazer
