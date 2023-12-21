@@ -1,6 +1,6 @@
-import { Monitor } from "./Monitor";
+import { Monitor } from "../Monitor";
 import { BackgroundDetails, BackgroundDetails2, Container, Content, Monitorias, TitleContainer } from "./styles";
-import { Form } from "./Form";
+import { Form } from "../Form";
 
 
 interface DashboardProps {
