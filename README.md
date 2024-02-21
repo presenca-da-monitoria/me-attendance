@@ -17,6 +17,3 @@ Para rodar, clone o repo e então, coloque no terminal:
 
 # coisas pra fazer
 - Validação de dados
-
-# Link do vercel
-https://me-attendance.vercel.app/
